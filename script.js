@@ -18,7 +18,7 @@ let weather = {
        document.querySelector(".description").innerHTML = description.charAt(0).toUpperCase() + description.slice(1)
        document.querySelector(".humidity").innerHTML = "Humidade: "+ humidity + "%"
        document.querySelector(".wind").innerHTML = "Velocidade do vento: " + speed +" km/h"
-       document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?"+ name +"')"
+    //    document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?"+ name +"')"
    },
    search: function() {
        this.fetchWeather(document.querySelector(".search-bar").value)
