@@ -38,4 +38,6 @@ window.onload = function(){
     })
 }
 
-weather.fetchWeather("Florianópolis")
+window.onload = function(){
+    weather.fetchWeather("Florianópolis")
+}
