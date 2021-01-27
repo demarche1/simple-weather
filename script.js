@@ -1,3 +1,5 @@
+// Weather object
+
 let weather = {
    apiKey: "5901887d5646ddad16f84bb5557a34e8",
    fetchWeather: function(city) {
@@ -5,6 +7,7 @@ let weather = {
        .then((response) => response.json())
        .then((data) => this.displayWeather(data))
    },
+   
    displayWeather: function(data) {
        const { name } = data
        const { temp, humidity } = data.main
@@ -18,26 +21,62 @@ let weather = {
        document.querySelector(".description").innerHTML = description.charAt(0).toUpperCase() + description.slice(1)
        document.querySelector(".humidity").innerHTML = "Humidade: "+ humidity + "%"
        document.querySelector(".wind").innerHTML = "Velocidade do vento: " + speed +" km/h"
-       document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?"+ name +"')"
+       this.displayBackground(description)
    },
+
    search: function() {
        this.fetchWeather(document.querySelector(".search-bar").value)
+   },
+
+   displayBackground: function(description){
+       if(description === "céu limpo"){
+            document.body.style.backgroundImage = "url(./assets/clearsky.jpg)"
+       }
+       if(description === "algumas nuvens" || description === "nuvens dispersas"){
+            document.body.style.backgroundImage = "url(./assets/fewclouds.jpg)"
+       }
+       if(description === "nublado"){
+            document.body.style.backgroundImage = "url(./assets/nublado.jpg)"
+       }
+       if(description === "chuva moderada" || description === "chuva leve" || description === "chuva forte"){
+            document.body.style.backgroundImage = "url(./assets/rains.jpg)"
+       }
+       if(description === "tempestade"){
+            document.body.style.backgroundImage = "url(./assests/thenderstorm.jpg)"
+       }
+       if(description === "neve" || description === "pouca neve"){
+            document.body.style.backgroundImage = "url(./assets/snow)"
+       }
+       if(description === "neblina"){
+            document.body.style.backgroundImage = "url(./assets/mist)"
+       }
    }
 }
 
-window.onload = function(){
+// Standard fetchWeather 
+
+setTimeout(() => {
+    weather.fetchWeather("Florianópolis")
+}, 1000);
+
+// Event Listeners
+
+setTimeout(() => {
     document.querySelector(".search-bar button").addEventListener("click", function(){
         weather.search()
-    })
-}
-window.onload = function(){
+    }) 
+}, 1000);
+
+
+setTimeout(() => {
     document.querySelector(".search-bar").addEventListener("keyup", function(event) {
         if(event.key == "Enter"){
             weather.search()
         }
     })
-}
+}, 1000);
 
-window.onload = function(){
-    weather.fetchWeather("Florianópolis")
-}
+
+
+
+

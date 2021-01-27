@@ -10,12 +10,12 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("https://source.unsplash.com/1600x900/?florianopolis");
     background-position: center;
     background-size: cover;
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Header style */
 header{
     position: absolute;
     top: 2.5rem;
@@ -29,6 +29,7 @@ header .logo{
     border-bottom: 1px solid white;
 }
 
+/* Weather card styles */
 .card{
     position: relative;
     background-color: rgba(7, 0, 0, 0.6);
@@ -83,6 +84,7 @@ header .logo{
     align-items: center;
 }
 
+/* footer style */
 footer{
     color: white;
     font-size: 1rem;
